@@ -68,5 +68,25 @@ function is_logined()
 	return false;
 }
 
+function write_msg($msg)
+{
+	global $MYSQL_HANDLE;
+	if(is_logined())
+	{
+		mysqli_query($MYSQL_HANDLE, "insert into `messages` set `msg_author`='".$_COOKIE['nick']."', `msg_text`='$msg';");
+	}
+}
 
+function get_last_messages($amount)
+{
+	global $MYSQL_HANDLE;
+	$max = mysqli_query($MYSQL_HANDLE, "select max(`msg_id`) as `max` from `messages`;");
+	$max = mysqli_fetch_array($max);
+	$request = mysqli_query($MYSQL_HANDLE, "select * from `messages` where `msg_id` > ".($max['max']-$amount).";");
+	for($i = $amount-1;$i >= 0;--$i)
+	{
+		$tmp[$i] = mysqli_fetch_array($request);
+	}
+	return $tmp;
+}
 ?>
