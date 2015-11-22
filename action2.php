@@ -6,5 +6,5 @@
 	$pas = htmlspecialchars($_POST['password']); 
 	$nick = htmlspecialchars($_POST['nick']); 
 	register($logi, $pas, $nick);
-	echo (file_get_contents("page.html"));
+	header("Location: index.php");
  ?>
