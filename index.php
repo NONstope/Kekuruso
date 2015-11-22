@@ -2,16 +2,20 @@
 	include 'API.php';
 	set_connection("localhost", "root", "", "kekuruso");
 	
-	$logi = htmlspecialchars($_POST['login'] );
-	$pas = htmlspecialchars($_POST['password']); 
+	if(isset($_POST['login']) && isset($_POST['password']))
+	{
+		$logi = htmlspecialchars($_POST['login']);
+		$pas = htmlspecialchars($_POST['password']);
+		
+		if(is_user_exist($logi, $pas) == false){
+			header("Location: reg.html");
+		}
+		else{
+			login($logi, $pas);
+			header("Location: action3.php");
+		}
+	}
 	
-	if(is_user_exist($logi, $pas) == false){
-		header("Location: reg.html");
-	}
-	else{
-		login($logi, $pas);
-		header("Location: action3.php");
-	}
  ?>
 
 <html>
