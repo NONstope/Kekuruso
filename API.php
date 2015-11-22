@@ -31,7 +31,7 @@ function is_user_exist($login, $password)
 function login($login, $password)
 {
 	global $MYSQL_HANDLE, $SALT;
-	if(($arr = is_user_exist($login, $password)) != false)
+	if(($arr = is_user_exist(protect_string($login), protect_string($password))) != false)
 	{
 		setcookie("login",$arr['login']);
 		setcookie("id",$arr['id']);
@@ -47,6 +47,8 @@ function login($login, $password)
 function register($login, $password, $nick)
 {
 	global $MYSQL_HANDLE, $SALT;
+	$login = protect_string($login);
+	$nick = protect_string($nick);
 	$password = md5($password.$SALT);
 	if(is_user_exist($login, $password) == false)
 	{
@@ -71,9 +73,10 @@ function is_logined()
 function write_msg($msg)
 {
 	global $MYSQL_HANDLE;
+	$msg = protect_string($msg);
 	if(is_logined())
 	{
-		mysqli_query($MYSQL_HANDLE, "insert into `messages` set `msg_author`='".$_COOKIE['nick']."', `msg_text`='$msg';");
+		mysqli_query($MYSQL_HANDLE, "insert into `messages` set `msg_author`='".protect_string($_COOKIE['nick'])."', `msg_text`='$msg';");
 	}
 }
 
@@ -88,5 +91,10 @@ function get_last_messages($amount)
 		$tmp[$i] = mysqli_fetch_array($request);
 	}
 	return $tmp;
+}
+
+function protect_string($string)
+{
+	return str_replace("'", "\'", $string);
 }
 ?>
