@@ -1,0 +1,44 @@
+.formachka{
+	margin-top: 5%;
+	background-color: #fff;
+	position:absolute;
+	top: 8%;
+	left: 37%;
+	padding: 5%;
+	box-shadow: 0 3px 20px rgba(0,0,0,.25),
+	inset 0 2px 0 rgba(255,255,255,.6),
+	0 2px 0 rgba(0,0,0,.1),
+	inset 0 0 20px rgba(0,0,0,.1);
+}
+.mysubmit{
+	font-weight: 700;
+	color: white;
+	text-decoration: none;
+	padding: .8em 1em calc(.8em + 3px);
+	border-radius: 3px;
+	background: rgb(64,199,129);
+	box-shadow: 0 -3px rgb(53,167,110) inset;
+	transition: 0.2s;
+}
+.pp{
+	padding-left: 20%
+}
+.div_a{
+	margin: 2px;
+	padding-left: 85%;
+	background: rgb(64,199,129);
+	box-shadow: 0 3px 20px rgba(0,0,0,.25),
+	inset 0 2px 0 rgba(255,255,255,.6),
+	0 2px 0 rgba(0,0,0,.1),
+	inset 0 0 20px rgba(0,0,0,.1);
+}
+.a1{
+	color: #fff;
+}
+.a2{
+	padding-left: 15%;
+	color: #fff;
+}
+a:hover {
+	text-decoration:underline;
+}

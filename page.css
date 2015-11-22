@@ -1,0 +1,77 @@
+body {
+    font:12px arial;
+    color: #222;
+    text-align:center;
+    padding:35px; 
+}
+  
+  
+input { 
+	font:12px arial;
+}
+  
+a {
+    color: fff;
+    text-decoration:none; }
+  
+a:hover {
+	text-decoration:underline;
+}
+  
+#wrapper{
+    margin:0 auto;
+    padding-bottom:25px;
+    background: rgb(64,199,129);
+    width:504px;
+    
+	box-shadow: 0 3px 20px rgba(0,0,0,.25),
+	inset 0 2px 0 rgba(255,255,255,.6),
+	0 2px 0 rgba(0,0,0,.1),
+	inset 0 0 20px rgba(0,0,0,.1);
+	}
+  
+#loginform { 
+	padding-top:18px; 
+}
+  
+#loginform p { 
+	margin: 5px; 
+}
+  
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto;
+}
+  
+#usermsg {
+    width:395px;
+    border:1px solid #ACD8F0;
+}
+#submit {
+	width: 60px;
+}
+  
+#menu { padding:12.5px 25px 12.5px 25px; }
+  
+.welcome { 
+	float:left; 
+	color: fff;
+}
+  
+.logout { 
+	float:right;
+ }
+  
+.msgln {
+	margin:0 0 2px 0; 
+}
+img{
+	margin-top: 3%;
+}
