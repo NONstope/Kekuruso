@@ -95,6 +95,7 @@ function get_last_messages($amount)
 
 function protect_string($string)
 {
-	return str_replace("'", "\'", $string);
+	$string = str_replace("'", "\'", $string);
+	return str_replace("\\", "\\\\", $string);
 }
 ?>
