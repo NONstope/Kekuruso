@@ -21,24 +21,25 @@
 		<tr>
 			<div id="wrapper">
 				<div id="menu">
-					<p class="welcome">Welcome <?php  ?></p>
-					<p class="logout"><a id="exit" href="http://localhost/Kekuruso/login.html">logout</a></p>
+					<p class="welcome">Welcome <?php echo "<b>".$_COOKIE['nick']."</b>"; ?></p>
+					<p class="logout"><a id="exit" href="index.php">logout</a></p>
 				<div style="clear:both"></div>
 			</div>
      
 			<div id="chatbox">
 			<?php
-				echo ("testX");
-				set_connection("localhost", "root", "", "kekuruso");
-				
-				$arr = get_last_messages(10);
-				for($i = 0; $i < 10; $i++){
-					echo ($arr[$i]['msg_author']." ". $arr[$i]['msg_text']);
+			$arr = get_last_messages(50);
+			for($i = 0; $i < 50; $i++)
+			{
+				if(isset($arr[$i]['msg_author']))
+				{
+					echo ("<b>".$arr[$i]['msg_author']."</b>:<i>". $arr[$i]['msg_text']."</i><br>\n");
 				}
+			}
 			?>
 			 </div>
 				<form name="message" action="action3.php" method = "post">
-					<input name="usermsgg" type="text" id="usermsg" size="63" />
+					<input name="usermsgg" type="text" id="usermsg" size="63" autofocus/>
 					<input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
 				</form>
 			</div>

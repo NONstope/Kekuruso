@@ -25,13 +25,13 @@
 	</head>
 	<body>
 	<div class ="div_a">
-		<a href ="login.html" class = "a1">log in</a>
+		<a href ="index.php" class = "a1">log in</a>
 		<a href ="reg.html" class = "a2">registration</a>
 	</div>
 	<div class= "formachka">
 		<form action="" method="post">
-			<p class ="ppp"> login: <br> <input type="text" name="login" /></p>
-			<p class ="ppp"> password: <br> <input type="text" name="password" /></p>
+			<p class ="ppp"> login: <br> <input type="text" name="login" maxlength="10"/></p>
+			<p class ="ppp"> password: <br> <input type="password" name="password" maxlength="10"/></p>
 			<p class ="pp"><input type="submit" value="Login in" class = "mysubmit"/></p>
 		</form>
 	</div>

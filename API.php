@@ -31,7 +31,7 @@ function is_user_exist($login, $password)
 function login($login, $password)
 {
 	global $MYSQL_HANDLE, $SALT;
-	if(($arr = is_user_exist(protect_string($login), protect_string($password))) != false)
+	if((strlen($login) <= 10)&&(strlen($password) <= 10)&&($arr = is_user_exist(protect_string($login), protect_string($password))) != false)
 	{
 		setcookie("login",$arr['login']);
 		setcookie("id",$arr['id']);
@@ -49,10 +49,10 @@ function register($login, $password, $nick)
 	global $MYSQL_HANDLE, $SALT;
 	$login = protect_string($login);
 	$nick = protect_string($nick);
-	$password = md5($password.$SALT);
-	if(is_user_exist($login, $password) == false)
+	$passwd = md5($password.$SALT);
+	if((strlen($login) <= 10)&&(strlen($password) <= 10)&&(strlen($nick) <= 15)&&(is_user_exist($login, $password) == false))
 	{
-		mysqli_query($MYSQL_HANDLE, "insert into `users` set `login`='$login', `password`='$password', `nickname`='$nick';");
+		mysqli_query($MYSQL_HANDLE, "insert into `users` set `login`='$login', `password`='$passwd', `nickname`='$nick';");
 		return true;
 	}
 	else 
